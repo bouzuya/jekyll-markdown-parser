@@ -2,6 +2,13 @@
 
 A [Jekyll](https://jekyllrb.com/) Markdown parser using TypeScript.
 
+## Badges
+
+[![Travis CI][travisci-badge-url]][travisci-url]
+
+[travisci-badge-url]: https://travis-ci.org/bouzuya/jekyll-markdown-parser.svg?branch=master
+[travisci-url]: https://travis-ci.org/bouzuya/jekyll-markdown-parser
+
 ## License
 
 [MIT](LICENSE)
