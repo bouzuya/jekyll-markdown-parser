@@ -2,6 +2,12 @@
 
 A [Jekyll](https://jekyllrb.com/) Markdown parser using TypeScript.
 
+## Installation
+
+```
+$ npm install jekyll-markdown-parser
+```
+
 ## Usage
 
 ```ts
