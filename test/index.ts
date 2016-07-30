@@ -1,14 +1,69 @@
 import beater from 'beater';
 import * as assert from 'power-assert';
-import * as proxyquire from 'proxyquire';
-import * as sinon from 'sinon';
 
-import { add } from '../src/';
+import {
+  compileMarkdown,
+  parse,
+  parseYaml,
+  separate
+} from '../src/';
 
 const { test } = beater();
 
-test('add', () => {
-  assert(add(1, 2) === 3);
-  assert(proxyquire);
-  assert(sinon);
+test('compileMarkdown', () => {
+  const markdown = 'This is my first entry.';
+  const html = compileMarkdown(markdown);
+  assert(html === '<p>This is my first entry.</p>\n');
+});
+
+test('parse', () => {
+  const yaml = [
+    'layout: post',
+    'title: Hello Jekyll',
+  ].map((s) => s + '\n').join('');
+  const markdown = [
+    'This is my first entry.'
+  ].map((s) => s + '\n').join('');
+  const jekyllMarkdown = `---\n${yaml}---\n${markdown}`;
+  const parsed = parse(jekyllMarkdown);
+  assert.deepEqual(
+    parsed,
+    {
+      html: '<p>This is my first entry.</p>\n',
+      markdown,
+      parsedYaml: {
+        layout: 'post',
+        title: 'Hello Jekyll'
+      },
+      yaml
+    }
+  );
+});
+
+test('parseYaml', () => {
+  const yaml = [
+    'layout: post',
+    'title: Hello Jekyll',
+  ].join('\n');
+  const parsed = parseYaml(yaml);
+  assert.deepEqual(
+    parsed,
+    {
+      layout: 'post',
+      title: 'Hello Jekyll'
+    }
+  );
+});
+
+test('separate', () => {
+  const yaml = [
+    'layout: post',
+    'title: Hello Jekyll',
+  ].map((s) => s + '\n').join('');
+  const markdown = [
+    'This is my first entry.'
+  ].map((s) => s + '\n').join('');
+  const jekyllMarkdown = `---\n${yaml}---\n${markdown}`;
+  const separated = separate(jekyllMarkdown);
+  assert.deepEqual(separated, { markdown, yaml });
 });
