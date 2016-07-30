@@ -52,7 +52,6 @@
   "keywords": [],
   "license": "MIT",
   "main": "./lib/index.js",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/bouzuya/jekyll-markdown-parser.git"
