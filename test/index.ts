@@ -67,3 +67,20 @@ test('separate', () => {
   const separated = separate(jekyllMarkdown);
   assert.deepEqual(separated, { markdown, yaml });
 });
+
+test('separate 2', () => {
+  const yaml = [
+    'layout: post',
+    'title: Hello Jekyll',
+  ].map((s) => s + '\n').join('');
+  const markdown = [
+    'This is my first entry.',
+    '---',
+    'Hello',
+    '---',
+    'World'
+  ].map((s) => s + '\n').join('');
+  const jekyllMarkdown = `---\n${yaml}---\n${markdown}`;
+  const separated = separate(jekyllMarkdown);
+  assert.deepEqual(separated, { markdown, yaml });
+});
