@@ -30,7 +30,7 @@
     "@types/marked": "0.0.27",
     "@types/power-assert": "0.0.27",
     "@types/proxyquire": "1.3.26",
-    "@types/sinon": "1.16.26",
+    "@types/sinon": "1.16.29",
     "babel-cli": "6.14.0",
     "babel-preset-es2015": "6.14.0",
     "beater": "0.4.1",
