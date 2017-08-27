@@ -5,7 +5,7 @@ const separate = (jekyllMarkdown: string): {
   markdown: string;
   yaml: string;
 } => {
-  const re = new RegExp('^---\s*$\n', 'm');
+  const re = new RegExp('^---\s*$\r?\n', 'm');
   const m1 = jekyllMarkdown.match(re); // first separator
   if (m1 === null) {
     return { markdown: jekyllMarkdown, yaml: '' };
