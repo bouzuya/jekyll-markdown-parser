@@ -55,14 +55,29 @@ const tests1: Test[] = [
   }),
 
   test('separate', () => {
+    const ls = '\n';
     const yaml = [
       'layout: post',
       'title: Hello Jekyll',
-    ].map((s) => s + '\n').join('');
+    ].map((s) => s + ls).join('');
     const markdown = [
       'This is my first entry.'
-    ].map((s) => s + '\n').join('');
-    const jekyllMarkdown = `---\n${yaml}---\n${markdown}`;
+    ].map((s) => s + ls).join('');
+    const jekyllMarkdown = `---${ls}${yaml}---${ls}${markdown}`;
+    const separated = separate(jekyllMarkdown);
+    assert.deepEqual(separated, { markdown, yaml });
+  }),
+
+  test('separate (windows)', () => {
+    const ls = '\r\n';
+    const yaml = [
+      'layout: post',
+      'title: Hello Jekyll',
+    ].map((s) => s + ls).join('');
+    const markdown = [
+      'This is my first entry.'
+    ].map((s) => s + ls).join('');
+    const jekyllMarkdown = `---${ls}${yaml}---${ls}${markdown}`;
     const separated = separate(jekyllMarkdown);
     assert.deepEqual(separated, { markdown, yaml });
   }),
