@@ -12,12 +12,6 @@
       "es2015"
     ]
   },
-  "beater": {
-    "dir": "./.tmp/es5/test/",
-    "require": [
-      "./scripts/enable-power-assert.js"
-    ]
-  },
   "bugs": {
     "url": "https://github.com/bouzuya/jekyll-markdown-parser/issues"
   },
@@ -28,13 +22,13 @@
   "devDependencies": {
     "@types/js-yaml": "3.5.27",
     "@types/marked": "0.0.27",
+    "@types/node": "^8.0.25",
     "@types/power-assert": "0.0.27",
     "@types/proxyquire": "1.3.26",
     "@types/sinon": "1.16.29",
     "babel-cli": "6.14.0",
     "babel-preset-es2015": "6.14.0",
-    "beater": "0.4.1",
-    "beater-cli": "0.2.4",
+    "beater": "^5.0.1",
     "cpx": "1.5.0",
     "espower-loader": "1.0.1",
     "npm-run-all": "3.1.0",
@@ -64,7 +58,7 @@
     "clean": "rimraf .tmp/ lib/",
     "prepublish": "npm-run-all -s 'clean' 'build'",
     "start": "node ./lib/index.js",
-    "test": "beater",
+    "test": "node .tmp/es5/test/index",
     "watch": "npm-run-all -p 'watch:*'",
     "watch:es2015": "npm run 'build:es2015' -- --watch",
     "watch:test": "watch --wait 2 'npm test' '.tmp/es5/test/'",
