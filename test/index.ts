@@ -15,6 +15,14 @@ const tests1: Test[] = [
     assert(html === '<p>This is my first entry.</p>\n');
   }),
 
+  test('compileMarkdown with options', () => {
+    const markdown = 'http://example.com';
+    const html = compileMarkdown(markdown, { gfm: true });
+    assert(html === '<p><a href=\"http://example.com\">http://example.com</a></p>\n');
+    const htmlNoGfm = compileMarkdown(markdown, { gfm: false });
+    assert(htmlNoGfm === '<p>http://example.com</p>\n');
+  }),
+
   test('parse', () => {
     const yaml = [
       'layout: post',
@@ -29,6 +37,30 @@ const tests1: Test[] = [
       parsed,
       {
         html: '<p>This is my first entry.</p>\n',
+        markdown,
+        parsedYaml: {
+          layout: 'post',
+          title: 'Hello Jekyll'
+        },
+        yaml
+      }
+    );
+  }),
+
+  test('parse with options', () => {
+    const yaml = [
+      'layout: post',
+      'title: Hello Jekyll',
+    ].map((s) => s + '\n').join('');
+    const markdown = [
+      'http://example.com'
+    ].map((s) => s + '\n').join('');
+    const jekyllMarkdown = `---\n${yaml}---\n${markdown}`;
+    const parsed = parse(jekyllMarkdown, { compileMarkdownOptions: { gfm: true } });
+    assert.deepEqual(
+      parsed,
+      {
+        html: '<p><a href=\"http://example.com\">http://example.com</a></p>\n',
         markdown,
         parsedYaml: {
           layout: 'post',

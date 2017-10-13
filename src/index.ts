@@ -1,6 +1,10 @@
 import { safeLoad } from 'js-yaml';
 import * as marked from 'marked';
 
+export interface Options {
+  compileMarkdownOptions: any;
+}
+
 const separate = (jekyllMarkdown: string): {
   markdown: string;
   yaml: string;
@@ -20,15 +24,15 @@ const separate = (jekyllMarkdown: string): {
   return { markdown, yaml };
 };
 
-const compileMarkdown = (markdown: string): string => {
-  return marked(markdown);
+const compileMarkdown = (markdown: string, options?: any): string => {
+  return marked(markdown, options);
 };
 
 const parseYaml = (yaml: string): any => {
   return safeLoad(yaml);
 };
 
-const parse = (jekyllMarkdown: string): {
+const parse = (jekyllMarkdown: string, options?: Partial<Options>): {
   html: string;
   yaml: string;
   parsedYaml: any;
@@ -36,7 +40,10 @@ const parse = (jekyllMarkdown: string): {
 } => {
   const { yaml, markdown } = separate(jekyllMarkdown);
   const parsedYaml = parseYaml(yaml);
-  const html = compileMarkdown(markdown);
+  const compileMarkdownOptions = typeof options === 'undefined'
+    ? void 0
+    : options.compileMarkdownOptions
+  const html = compileMarkdown(markdown, compileMarkdownOptions);
   return { html, markdown, parsedYaml, yaml };
 };
 
