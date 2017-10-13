@@ -10,13 +10,13 @@ const separate = (jekyllMarkdown: string): {
   if (m1 === null) {
     return { markdown: jekyllMarkdown, yaml: '' };
   }
-  const s1 = jekyllMarkdown.substring(m1.index + m1[0].length);
+  const s1 = jekyllMarkdown.substring(m1.index! + m1[0].length);
   const m2 = s1.match(re); // second separator
   if (m2 === null) {
     return { markdown: jekyllMarkdown, yaml: '' };
   }
   const yaml = s1.substring(0, m2.index);
-  const markdown = s1.substring(m2.index + m2[0].length);
+  const markdown = s1.substring(m2.index! + m2[0].length);
   return { markdown, yaml };
 };
 
