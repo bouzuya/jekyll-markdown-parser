@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "js-yaml": "^3.10.0",
-    "marked": "0.3.6"
+    "marked": "^0.3.9"
   },
   "devDependencies": {
     "@types/js-yaml": "^3.10.1",
