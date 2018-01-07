@@ -65,7 +65,6 @@
     "build:ts": "tsc",
     "clean": "rimraf .tmp/ lib/",
     "prepare": "npm-run-all -s 'clean' 'build'",
-    "prepublish": "npm-run-all -s 'clean' 'build'",
     "start": "node ./lib/index.js",
     "test": "node .tmp/es5/test/index",
     "watch": "npm-run-all -p 'watch:*'",
