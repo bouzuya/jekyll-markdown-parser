@@ -53,7 +53,7 @@
   "homepage": "https://github.com/bouzuya/jekyll-markdown-parser#readme",
   "keywords": [],
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/bouzuya/jekyll-markdown-parser.git"
