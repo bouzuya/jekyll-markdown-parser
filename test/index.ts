@@ -26,7 +26,7 @@ const tests1: Test[] = [
   test('parse', () => {
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].map((s) => s + '\n').join('');
     const markdown = [
       'This is my first entry.'
@@ -50,7 +50,7 @@ const tests1: Test[] = [
   test('parse with options', () => {
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].map((s) => s + '\n').join('');
     const markdown = [
       'http://example.com'
@@ -74,7 +74,7 @@ const tests1: Test[] = [
   test('parseYaml', () => {
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].join('\n');
     const parsed = parseYaml(yaml);
     assert.deepEqual(
@@ -90,7 +90,7 @@ const tests1: Test[] = [
     const ls = '\n';
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].map((s) => s + ls).join('');
     const markdown = [
       'This is my first entry.'
@@ -104,7 +104,7 @@ const tests1: Test[] = [
     const ls = '\r\n';
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].map((s) => s + ls).join('');
     const markdown = [
       'This is my first entry.'
@@ -117,7 +117,7 @@ const tests1: Test[] = [
   test('separate 2', () => {
     const yaml = [
       'layout: post',
-      'title: Hello Jekyll',
+      'title: Hello Jekyll'
     ].map((s) => s + '\n').join('');
     const markdown = [
       'This is my first entry.',
