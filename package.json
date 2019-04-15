@@ -60,16 +60,17 @@
     "url": "https://github.com/bouzuya/jekyll-markdown-parser.git"
   },
   "scripts": {
-    "build": "npm-run-all -s 'build:ts' 'build:es2015' 'build:lib'",
-    "build:es2015": "babel --quiet .tmp/es2015/ -d .tmp/es5/",
-    "build:lib": "cpx '.tmp/es5/src/**/*.{js,d.ts}' 'lib/'",
-    "build:ts": "tsc",
+    "build": "npm-run-all -s build:es2015 build:es5 build:lib",
+    "build:es2015": "tsc",
+    "build:es5": "babel --out-dir .tmp/es5/ --source-maps inline .tmp/es2015/",
+    "build:lib": "babel --copy-files --no-comments --out-dir ./lib/ .tmp/es2015/src/",
     "clean": "rimraf .tmp/ lib/",
     "prepare": "npm-run-all -s 'clean' 'build'",
     "start": "node ./lib/index.js",
     "test": "node .tmp/es5/test/index",
     "watch": "npm-run-all -p 'watch:*'",
     "watch:es2015": "npm run 'build:es2015' -- --watch",
+    "watch:es5": "npm run 'build:es5' -- --watch",
     "watch:test": "watch --wait 2 'npm test' '.tmp/es5/test/'",
     "watch:ts": "npm run 'build:ts' -- --watch"
   },

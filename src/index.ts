@@ -1,5 +1,5 @@
 import { safeLoad } from 'js-yaml';
-import * as marked from 'marked';
+import marked from 'marked';
 
 export interface Options {
   compileMarkdownOptions: any;
