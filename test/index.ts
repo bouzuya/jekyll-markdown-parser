@@ -1,4 +1,5 @@
-import { Test, run, test } from 'beater';
+import { Test, run } from 'beater';
+import { named as test } from 'beater-helpers';
 import assert from 'power-assert';
 
 import {
