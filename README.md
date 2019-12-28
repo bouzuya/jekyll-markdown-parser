@@ -42,9 +42,9 @@ or use `compileMarkdown` / `parseYaml` / `separate`. See [`test/index.ts`](test/
 [![npm version][npm-badge-url]][npm-url]
 [![Travis CI][travisci-badge-url]][travisci-url]
 
-[npm-badge-url]: https://badge.fury.io/js/jekyll-markdown-parser.svg
+[npm-badge-url]: https://img.shields.io/npm/v/jekyll-markdown-parser.svg
 [npm-url]: https://www.npmjs.com/package/jekyll-markdown-parser
-[travisci-badge-url]: https://travis-ci.org/bouzuya/jekyll-markdown-parser.svg?branch=master
+[travisci-badge-url]: https://img.shields.io/travis/bouzuya/jekyll-markdown-parser.svg
 [travisci-url]: https://travis-ci.org/bouzuya/jekyll-markdown-parser
 
 ## License
