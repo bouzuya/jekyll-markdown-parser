@@ -28,9 +28,9 @@
     "marked": "^0.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@types/js-yaml": "^3.12.1",
     "@types/marked": "^0.7.0",
     "@types/node": "^10.17.13",
