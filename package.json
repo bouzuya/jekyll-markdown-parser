@@ -77,7 +77,6 @@
     "watch": "npm-run-all -p 'watch:*'",
     "watch:es2015": "npm run 'build:es2015' -- --watch",
     "watch:es5": "npm run 'build:es5' -- --watch",
-    "watch:test": "watch --wait 2 'npm test' '.tmp/es5/test/'",
-    "watch:ts": "npm run 'build:ts' -- --watch"
+    "watch:test": "watch --wait 2 'npm test' '.tmp/es5/test/'"
   }
 }
