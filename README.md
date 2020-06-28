@@ -1,5 +1,7 @@
 # jekyll-markdown-parser
 
+**DEPRECATED: Use [npm:front-matter][] and [npm:marked][] instead.**
+
 A [Jekyll](https://jekyllrb.com/) Markdown parser using TypeScript.
 
 ## Installation
@@ -19,20 +21,17 @@ const jekyllMarkdown = [
   'layout: post',
   'title: Hello Jekyll',
   '---',
-  'This is my first entry.'
+  'This is my first entry.',
 ].join('\n');
-assert.deepEqual(
-  parse(jekyllMarkdown),
-  {
-    html: '<p>This is my first entry.</p>\n',
-    markdown: 'This is my first entry.',
-    parsedYaml: {
-      layout: 'post',
-      title: 'Hello Jekyll'
-    },
-    yaml: 'layout: post\ntitle: Hello Jekyll\n'
-  }
-);
+assert.deepEqual(parse(jekyllMarkdown), {
+  html: '<p>This is my first entry.</p>\n',
+  markdown: 'This is my first entry.',
+  parsedYaml: {
+    layout: 'post',
+    title: 'Hello Jekyll',
+  },
+  yaml: 'layout: post\ntitle: Hello Jekyll\n',
+});
 ```
 
 or use `compileMarkdown` / `parseYaml` / `separate`. See [`test/index.ts`](test/index.ts).
@@ -58,3 +57,12 @@ or use `compileMarkdown` / `parseYaml` / `separate`. See [`test/index.ts`](test/
 [user]: https://github.com/bouzuya
 [email]: mailto:m@bouzuya.net
 [url]: http://bouzuya.net
+
+## Alternatives
+
+- [npm:front-matter][]
+- [npm:gray-matter][]
+
+[npm:front-matter]: https://www.npmjs.com/package/front-matter
+[npm:gray-matter]: https://www.npmjs.com/package/gray-matter
+[npm:marked]: https://www.npmjs.com/package/marked
